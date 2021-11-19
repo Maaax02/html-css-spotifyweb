@@ -15,27 +15,48 @@ body{
     position: relative;
 }
 
+.container{
+    height: calc(100vh - 120px);
+    display: flex;
+}
+
 header{
     height: 120px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: calc(100% - 200px);
+    position: fixed;
+    top: 0;
+}
+
+header::after{
+    clear: both;
+    content: "";
+    display: table;
 }
 
 .sidebar{
-    height: 100vh;
+    height: calc(100vh - 120px);
     width: 200px;
-    background-color: black;
-    position: fixed;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar svg{
     filter: brightness(100%);
-    width: 160px;
+    width: 150px;
     margin-left:  15px;
     margin: 20px;
 }
 
+#special{
+    width: 40px;
+    display: none;
+    margin: 10px 5px;
+}
+
 .inner{
-    display: flex;
     height: 35px;
     color: #ccc;
     margin-top: 10px;
@@ -83,6 +104,12 @@ header{
     text-align: center;
 }
 
+.contenitore{
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 150px;
+}
+
 .inner2{
     height: 35px;
     color: #ccc;
@@ -95,7 +122,6 @@ header{
     display: flex;
     width: 160px;
     margin-left: 10px;
-    margin-top: 220px;
     font-size: 12px;
     color: #ccc;
     border-bottom: 2px solid #ccc;
@@ -139,32 +165,30 @@ header{
 
 main{
     background-color:rgb(30, 36, 41);
-    width:100%;
-    height: 170vh;
-}
-
-.list{
-    margin: 0 auto;
-    display: flex;
+    width: calc(100% - 200px);
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-top: 120px;
 }
 
 .list ul{
     list-style: none;
-    margin-left: 550px;
+    margin-left: 360px;
     display: flex;
 }
 
 .list ul li{
-    width: 170px;
     padding-left: 40px;
     padding-top: 20px;
     font-size: 15px;
     color: rgb(165, 165, 165);
 }
 
+
 .title{    
     width: 400px;
-    margin-left: 230px;
+    margin-left: 60px;
     padding-top: 100px;
     color: #fff;
     display: flex;
@@ -173,7 +197,7 @@ main{
 .title-2{
     height: 100px;
     color: #fff;
-    margin-left: 230px;
+    margin-left: 60px;
     margin-top: 70px;
 }
 
@@ -184,29 +208,33 @@ main{
 }
 
 
-footer{
-    background-color: rgb(24, 22, 22);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 120px;   
-}
 
 .albums{
     display: flex;
-    justify-content: space-around;
-    margin-left: 200px;
+    flex-wrap: wrap;
     margin-top: 40px;
 }
 
 .album{
-    width: 250px;
-    height: 300px;
+    width: 240px;
+    height: 290px;
     margin-left: 30px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+ .album i{
+    position: absolute;
+    top: 70px;
+    left: 75px;
+    color: #fff;
+    font-size: 100px;
+    display: none;
 }
 
 .album img{
-   height: 80%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .album h2{
@@ -216,15 +244,18 @@ footer{
     margin-top: 12px;
 }
 
+.album span{
+    color: gray; 
+    margin-left: 90px;
+}
+
 .others{
     display: flex;
-    margin-left: 200px;
     margin-top: 20px;
 }
 
 .einaudi{
     display: flex;
-    margin-left: 200px;
     margin-top: 20px;
 }
 
@@ -244,4 +275,298 @@ footer{
 .album-radius img{
     height: 80%;
     border-radius: 50%;
+}
+
+footer{
+    display: flex;
+    background-color: rgb(53, 50, 50);
+    height: 120px;
+    z-index: 1001;
+}
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 250px;
+    height: 100%;
+    color: gray;
+
+}
+
+.left img{
+    height: 60px;
+}
+
+.text h5{
+    color: #fff;
+}
+
+.icons{
+    width: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.centered{
+    width: calc(100% - 500px);
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.centered .icons{
+    width: 250px;
+    margin-left: 130px;
+}
+
+.range{
+    width: 450px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: rgba(128, 128, 128, 0.733);
+    margin-top: 6px;
+    position: relative;
+}
+
+.green{
+    width: 150px;
+    height: 100%;
+    background-color: rgba(0, 128, 0, 0.733);
+    display: none;
+}
+
+.radius{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    position: absolute;
+    top: -4px;
+    left: 140px;
+}
+
+.upper{
+    width: 500px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.upper i{
+    padding-left: 18px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.right{
+    width: 250px;
+    
+    height: 100%;
+    display: flex;
+}
+
+.right  .icons{
+    width:100%;
+    height: 20px;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.right input{
+    width: 120px;
+   
+}
+
+.below{
+    width: 800px;
+    height: 20px;
+    display: flex;
+    align-content: center;
+}
+
+.below input{
+    width: 450px;   
+}
+
+.below span{
+    padding: 0px 15px;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+/* --------- HOVERS  --------- */
+
+.album:hover img{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.album-radius:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+ .album:hover i{
+    display:block;
+}
+
+ul li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #fff;
+}
+
+.upgrade:hover{
+    width: 300px;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.inner span:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
+.playlist h4:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
+.contenitore div:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
+.install span:hover{
+    cursor: pointer;
+    color: #fff;
+}
+
+footer i:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
+.left .right span, h6:hover{
+    text-decoration: underline;
+}
+
+.range:hover .green{
+    display: block;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.radius:hover{
+    cursor: pointer;
+}
+
+
+
+
+/* --------- MEDIA QUERY ---------  */
+
+
+
+
+ @media screen and (max-width: 620px){
+
+    .left, .centered, .right{
+    width: 100px;
+    }
+
+    
+.list ul{
+    margin-left: 0;
+}
+
+.list ul li{
+    font-size: 12px;
+}
+
+.albums{
+    width: 200px;
+}
+
+.others .album{
+    width: 1200px;
+}
+
+.sidebar{
+    width: 50px;
+}
+
+main{
+    width: calc(100% - 50px);
+}
+
+header{
+    width: calc(100% - 50px);
+}
+
+.sidebar h2{
+    display: none;
+}
+
+svg{
+    display: none;
+}
+
+#special{
+    display: block;
+}
+
+.playlist{
+    display: none;
+}
+
+.inner span{
+    display: none;
+}
+
+.inner2{
+    display: none;
+}
+
+.install{
+    display: none;
+}
+
+.profile{
+    display: none;
+}
+    
+ }
+
+ @media screen and (max-width: 1199px){
+
+     .albums{
+         width: 1100px;
+     }
+
+     .list ul{
+        margin-left: 0;
+    }
+
+    .centered{
+        width: 300px;   
+    }
+
+    .below{
+        width: 300px;
+    }
+
+    .upper{
+        width: 300px;
+    }
+
+    .upper .icons{
+        margin-left: 0;
+    }
 }
